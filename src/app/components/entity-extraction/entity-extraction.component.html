@@ -1,0 +1,74 @@
+<div>
+  <div>
+    <div class="text-center">
+      <h1>Entity Extraction</h1>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <label>Your text:</label>
+      <textarea [(ngModel)]="text" class="form-control" rows="5"></textarea>
+    </div>
+  </div>
+
+  <br>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+      <label class="form-label ">{{ minConfidence }}</label>
+      <input [(ngModel)]="minConfidence" class="form-range" type="range" max="1" min="0" step="0.01" >
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+      <div class="form-check form-check-inline">
+        <input [(ngModel)]="image" class="form-check-input" type="checkbox">
+        <label class="form-check-label">image</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input [(ngModel)]="abstract" class="form-check-input" type="checkbox">
+        <label class="form-check-label">abstract</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input [(ngModel)]="categories" class="form-check-input" type="checkbox">
+        <label class="form-check-label">categories</label>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-3 d-grid">
+      <button (click)="post()" [disabled]="isEmpty()" class="btn btn-primary" type="button">Submit</button>
+    </div>
+  </div>
+
+  <br>
+
+  <div *ngFor="let entity of entities" class="row justify-content-center">
+    <hr>
+    <div>
+      <h6>{{ entity.title }}</h6>
+      <p>Accuracy: {{ entity.confidence * 100 }}% </p>
+    </div>
+    <div *ngIf="entity.image">
+      <img [alt]="entity.label" [src]="entity.image.thumbnail" height="70px" width="70px">
+    </div>
+    <div *ngIf="entity.abstract">
+      <h6>Abstract:</h6>
+      <p>{{ entity.abstract }}</p>
+    </div>
+    <div *ngIf="entity.categories">
+      <h6>Categories:</h6>
+      <p>{{ entity.categories }}</p>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a [routerLink]="'/'" class="navbar-brand">Dandelion</a>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a [routerLink]="'/ee'" aria-current="page" class="nav-link active">Entity Extraction</a>
+          <a [routerLink]="'/ts'" aria-current="page" class="nav-link active">Text Similarity</a>
+          <a [routerLink]="'/ld'" aria-current="page" class="nav-link active">Language Detection</a>
+          <a [routerLink]="'/sa'" aria-current="page" class="nav-link active">Sentiment Analysis</a>
+          <a [routerLink]="'/h'" aria-current="page" class="nav-link active">History</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container pt-3">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,50 @@
+<div>
+  <div>
+    <div class="text-center">
+      <h1>Language Detection</h1>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <label>Your text:</label>
+      <textarea [(ngModel)]="text" class="form-control" rows="6"></textarea>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+      <div class="form-check form-check-inline">
+        <input [(ngModel)]="clean" class="form-check-input" type="checkbox">
+        <label class="form-check-label">clean</label>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-3 d-grid">
+      <button [disabled]="isEmpty()" type="button" class="btn btn-primary" (click)="detect()">Submit</button>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+
+    <div *ngFor="let lang of detectedLanguages" class="row justify-content-center">
+      <div class="col-md-2 text-center">
+        <h5>Language: {{ lang.lang }}</h5>
+      </div>
+      <div class="col-md-2 text-center">
+        <h5>Accuracy: {{ lang.confidence * 100 }}%</h5>
+      </div>
+    </div>
+  </div>
+
+</div>

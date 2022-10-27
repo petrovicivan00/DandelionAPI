@@ -1,0 +1,39 @@
+<div>
+  <div>
+    <div class="text-center">
+      <h1>Text Similarity</h1>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+      <label>First text:</label>
+      <textarea [(ngModel)]="first" class="form-control" rows="7"></textarea>
+    </div>
+    <div class="col-md-4 text-center">
+      <label>Second text:</label>
+      <textarea [(ngModel)]="second" class="form-control" rows="7"></textarea>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-3 d-grid">
+      <button (click)="compare()"
+              [disabled]="firstEmpty() || secondEmpty()"
+              class="btn btn-primary" type="button">Compare</button>
+    </div>
+  </div>
+
+  <br>
+
+  <div *ngIf="similarity != -1">
+    <div class="text-center">
+      <h4>Similarity: {{ similarity * 100 }}%</h4>
+    </div>
+  </div>
+
+</div>
