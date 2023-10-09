@@ -1,7 +1,3 @@
-Certainly! Here's a README file text for your GitHub project based on the provided project specification:
-
----
-
 # Text Analytics Web Application
 
 ## Overview
